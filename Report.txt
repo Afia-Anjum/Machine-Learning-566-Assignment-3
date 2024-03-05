@@ -1,0 +1,70 @@
+CMPUT 566
+Afia Anjum
+ccid: 1595188
+
+Ans. Q. No 1
+
+a) Inclusion of the a column of ones and discarding the column of ones give us the same result.
+We know that in Naive Bayes, presence of a feature in a certain class is independent of the presence of
+another feature in the same class. Since in that column of ones, all the values are equal to 1. So if we
+calculate the conditional probability of both the classes including the column of one (i.e adding 1 
+as a feature in each of the samples), it has no effect in the probability calculation. 
+
+Generally, this inclusion is done in order to accomodate a bias term, which has no effect in Naive Bayes.
+
+b) Please look at classalgorithms.py in line no. 158
+c) Please look at classalgorithms.py in line no. 202
+
+d) The following output is obtained running a 5 fold K cross validation with numruns=5:
+
+Average error for Random: 49.784
+Standard error for Random: 0.3475353219458422
+Meta parameters chosen by Cross Validation for Random: None
+Average error for Naive Bayes: 25.908000000000005
+Standard error for Naive Bayes: 0.10816284019939715
+Meta parameters chosen by Cross Validation for Naive Bayes: {'usecolumnones': True}
+Average error for Linear Regression: 27.167999999999996
+Standard error for Linear Regression: 0.3781047473915138
+Meta parameters chosen by Cross Validation for Linear Regression: None
+Average error for Logistic Regression: 23.883999999999997
+Standard error for Logistic Regression: 0.2077228923349585
+Meta parameters chosen by Cross Validation for Logistic Regression: {'stepsize': 0.1}
+Average error for Neural Network: 24.156555557
+Standard error for Neural Network: 0.2517228923349585
+Meta parameters chosen by Cross Validation for Neural Network: { 'epochs': 100, 'nh': 4 }
+ 
+
+It has been observed that, for hidden nodes=4 in Neural network, the error is lower (around 22-23). Whereas,
+increasing the number of hidden nodes increased the error for this dataset. Such as error is around 24.16
+for nh=8 and nh=16 and error=25 for nh=32.
+
+Ans to the Q. No-2
+a) For the implementation, please look at classalgorithms.py in line no. 384.
+
+Average error for Kernel Logistic Regress linear is around 24.799989585.
+Kernel logistic regression with a linear kernel has lower error than the implemented algorithms like 
+Naive Bayes, Linear regression, but does not do better than Neural Network for the particular dataset
+called susysubset.
+
+b) For this question, please change the default dataset name to "census" and run only the Random and
+Kernel Logistic Regression(with the kernel parameters containing "hamming") algorithms.
+
+Average error for Random: 49.69877788824
+Average error for Kernel Logistic Regress hamming: 24.18854222256
+For this particular dataset, we can say that hamming kernal works better than the random predictor 
+since it has a lower error.
+
+Ans to the Q. No-Bonus
+a) i)For the 2 Hidden Layer Neural Network, the implementation is done on at classalgorithms.py in 
+line no. 285.
+   Average error for 2 Hidden Layer Neural Network: 23.5658522451 
+   (with nodes 4 in first hidden layer and 4 in second hidden layer)
+    
+   ii)For the second part of this question, the implementation of a 2 Hidden Layer Neural Network using ADAM
+is done on classalgorithms.py in line no. 462. 
+   Note: Partially solved this code, having a problem in mcap and vcap updates. Could not compute error.
+
+b) Partially done this code at classalgorithms.py in line no. 72 of script_classify.py.
+The implementation does not provide results because of a problem in dimension mismatching. 
+
+
